@@ -1,0 +1,3 @@
+[submodule "latex-class"]
+	path = latex-class
+	url = https://github.com/lchmiel/SGGW-Thesis-LaTeX.git
