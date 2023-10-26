@@ -1,0 +1,27 @@
+\documentclass{SGGW-thesis}
+\INZYNIERSKAtrue % set by default
+\WZIMtrue % no other flags for departments exist right now
+\usepackage{fontspec}
+\setmainfont{Times New Roman}
+
+\title{My first LaTeX document}
+\author{Hubert Farnsworth}
+%\thanks{Funded by the Overleaf team.}
+\date{August 2022}
+
+\begin{document}
+\maketitle
+\statementpage
+\abstractpage
+First document. This is a simple example, with no 
+extra parameters or packages included.
+{
+  \doublespacing
+  \tableofcontents
+}
+\startchapterfromoddpage % niezależnie od długości spisu treści pierwszy rozdział zacznie się na nieparzystej stronie
+
+\chapter{Wstęp}
+Coś tam napisane.
+\beforelastpage
+\end{document}
