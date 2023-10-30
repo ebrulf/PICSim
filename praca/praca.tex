@@ -1,27 +1,76 @@
 \documentclass{SGGW-thesis}
 \INZYNIERSKAtrue % set by default
 \WZIMtrue % no other flags for departments exist right now
+
 \usepackage{fontspec}
 \setmainfont{Times New Roman}
 
-\title{My first LaTeX document}
-\author{Hubert Farnsworth}
+\usepackage{hyperref}
+
+\title{Mój pierwszy dokument w LaTeXu}
+\Etitle{My first LaTeX document}
+\author{Fałszywe Imię}
 %\thanks{Funded by the Overleaf team.}
-\date{August 2022}
+\date{Październik 2023}
+%\university{Szkoła Główna Gospodarstwa Wiejskiego\\ w Warszawie}
+%\dep{Wydział Zastosowań Informatyki i Matematyki}
+\album{000000}
+\thesis{Praca inżynierska na kierunku:}
+\course{Informatyka}
+\promotor{profesora Stanisława Iksińskiego}
+\pworkplace{Instytut Danych Już Wy Wiecie Skąd}
 
 \begin{document}
 \maketitle
 \statementpage
 \abstractpage
-First document. This is a simple example, with no 
-extra parameters or packages included.
+{Mój pierwszy dokument w LaTeXu}
+{Pierwszy dokument. To prosty przykład, bez żadnych przykładów}
+{przykład, pierwsze kroki}
+{My first LaTeX document}
+{First document.  This is a simple example, with no 
+extra parameters or packages included.}
+{example, baby's first steps}
+
 {
   \doublespacing
   \tableofcontents
 }
+
 \startchapterfromoddpage % niezależnie od długości spisu treści pierwszy rozdział zacznie się na nieparzystej stronie
 
+\chapter{Wykaz symboli i skrótów}
+TLDR -- zbyt długie, nie czytałem
+
 \chapter{Wstęp}
-Coś tam napisane.
-\beforelastpage
+Coś tam napisane. 
+
+\section{Przegląd literatury}
+W \LaTeX-u.\cite{talbot2013}
+
+\chapter{Cel i zakres pracy}
+Jeszcze więcej tekstu.
+
+\chapter{Założenia metodyczne}
+Jeszcze więcej tekstu.
+
+\chapter{Część doświadczalna}
+Jeszcze więcej tekstu.
+
+\chapter{Wyniki i dyskusja}
+Jeszcze więcej tekstu.
+
+\chapter{Wnioski}
+Panie Łukasz, popraw dokumentację tej klasy w LaTeXu.
+
+\chapter{Załączniki}
+\section{Załącznik 1}
+Bla.
+
+\section{Załącznik 2}
+Bla bal bal.
+
+\bibliographystyle{vancouver}
+\bibliography{przyklad}
+\beforelastpage[2023]
 \end{document}
