@@ -15,14 +15,36 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v3
+    - uses: actions/checkout@v4
       with:
-        dotnet-version: 7.0.x
-    - name: Restore dependencies
+        submodules: true # bo przecie¿ korzystamy z klasy
+    - name: Ustaw .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 8.0.x
+    - name: Przywróæ wymagane pakiety
       run: dotnet restore
-    - name: Build
+    - name: Zbuduj
       run: dotnet build --no-restore
-    - name: Test
+    - name: Testuj
       run: dotnet test --no-build --verbosity normal
+  praca:
+    runs-on: ubuntu-latest
+    steps:
+    - name: na wszelki wypadek œci¹gnijmy repo z klas¹
+      uses: actions/checkout@v4
+      with:
+        repository: ebrulf/SGGW-Thesis-LaTeX
+        path: latex/cls
+    - name: Skompiluj LaTeX-a
+      uses: actions/github-action-for-latex
+      with:
+        working-directory: praca
+        root-file: praca.tex
+        latexmk_use_xelatex: true
+        #args: -pdf -bibtex -latexoption=-file-line-error -latexoption=-interaction=nonstopmode
+    - name: Wrzuæ PDF-a
+      uses: actions/upload-artifact@v4
+      with:
+        name: praca
+        path: praca/praca.pdf
