@@ -41,7 +41,7 @@ jobs:
     - name: Skompiluj LaTeX-a
       uses: xu-cheng/latex-action@v3
       with:
-        working_directory: praca
+        #working_directory: praca #może teraz znajdzie
         root_file: praca/praca.tex
         latexmk_use_xelatex: true
         #env:
