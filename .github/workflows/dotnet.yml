@@ -1,5 +1,5 @@
-# This workflow will build a .NET project
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
+# Muj pierwszy workflow
+# Od .NETa więcej info tutaj: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
 
 name: .NET
 
@@ -41,9 +41,11 @@ jobs:
     - name: Skompiluj LaTeX-a
       uses: xu-cheng/latex-action@v3
       with:
-        working-directory: praca
-        root-file: praca.tex
+        working_directory: praca
+        root_file: praca.tex
         latexmk_use_xelatex: true
+        env:
+          TEXINPUTS: ".:./latex/cls//:"
         #args: -pdf -bibtex -latexoption=-file-line-error -latexoption=-interaction=nonstopmode
     - name: Wrzuć PDF-a
       uses: actions/upload-artifact@v4
