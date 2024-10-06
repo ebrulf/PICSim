@@ -24,8 +24,8 @@ jobs:
         dotnet-version: 8.0.x
     - name: Przywróć wymagane pakiety
       run: dotnet workload restore
-    #- name: I jeszcze coś
-    #  run: dotnet restore
+    - name: I jeszcze coś
+      run: dotnet restore
     - name: Zbuduj
       run: dotnet build --no-restore
     - name: Testuj
