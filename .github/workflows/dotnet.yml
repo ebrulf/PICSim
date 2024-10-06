@@ -17,12 +17,12 @@ jobs:
     steps:
     - uses: actions/checkout@v4
       with:
-        submodules: true # bo przecie¿ korzystamy z klasy
+        submodules: true # bo przecieÅ¼ korzystamy z klasy
     - name: Ustaw .NET
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: 8.0.x
-    - name: Przywróæ wymagane pakiety
+    - name: PrzywrÃ³Ä‡ wymagane pakiety
       run: dotnet restore
     - name: Zbuduj
       run: dotnet build --no-restore
@@ -31,19 +31,19 @@ jobs:
   praca:
     runs-on: ubuntu-latest
     steps:
-    - name: na wszelki wypadek œci¹gnijmy repo z klas¹
+    - name: na wszelki wypadek Å›ciÄ…gnijmy repo z klasÄ…
       uses: actions/checkout@v4
       with:
         repository: ebrulf/SGGW-Thesis-LaTeX
         path: latex/cls
     - name: Skompiluj LaTeX-a
-      uses: actions/github-action-for-latex
+      uses: actions/github-action-for-latex@v3
       with:
         working-directory: praca
         root-file: praca.tex
         latexmk_use_xelatex: true
         #args: -pdf -bibtex -latexoption=-file-line-error -latexoption=-interaction=nonstopmode
-    - name: Wrzuæ PDF-a
+    - name: WrzuÄ‡ PDF-a
       uses: actions/upload-artifact@v4
       with:
         name: praca
