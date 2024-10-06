@@ -6,13 +6,13 @@ namespace Sample
     {
         public static MauiApp CreateMauiApp() => MauiApp
             .CreateBuilder()
-            .ConfigureTests(new TestOptions
+            /*.ConfigureTests(new TestOptions
             {
                 Assemblies =
                 {
                     typeof(MauiProgram).Assembly
                 }
-            })
+            })*/
             .UseVisualRunner()
             .Build();
     }
