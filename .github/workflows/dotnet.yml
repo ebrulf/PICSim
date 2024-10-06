@@ -23,6 +23,8 @@ jobs:
       with:
         dotnet-version: 8.0.x
     - name: Przywróć wymagane pakiety
+      run: dotnet workload restore
+    - name: I jeszcze coś
       run: dotnet restore
     - name: Zbuduj
       run: dotnet build --no-restore
@@ -37,7 +39,7 @@ jobs:
         repository: ebrulf/SGGW-Thesis-LaTeX
         path: latex/cls
     - name: Skompiluj LaTeX-a
-      uses: actions/github-action-for-latex@v3
+      uses: xu-cheng/latex-action@v3
       with:
         working-directory: praca
         root-file: praca.tex
