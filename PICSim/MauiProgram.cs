@@ -1,19 +1,25 @@
-﻿using Xunit.Runners.Maui;
+﻿using Microsoft.Extensions.Logging;
 
-namespace Sample
+namespace PICSim
 {
     public static class MauiProgram
     {
-        public static MauiApp CreateMauiApp() => MauiApp
-            .CreateBuilder()
-            /*.ConfigureTests(new TestOptions
-            {
-                Assemblies =
+        public static MauiApp CreateMauiApp()
+        {
+            var builder = MauiApp.CreateBuilder();
+            builder
+                .UseMauiApp<App>()
+                .ConfigureFonts(fonts =>
                 {
-                    typeof(MauiProgram).Assembly
-                }
-            })*/
-            .UseVisualRunner()
-            .Build();
+                    fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
+                    fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+                });
+
+#if DEBUG
+    		builder.Logging.AddDebug();
+#endif
+
+            return builder.Build();
+        }
     }
 }
