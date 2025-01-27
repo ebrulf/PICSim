@@ -7,8 +7,8 @@
 
     <IsPackable>false</IsPackable>
     <IsTestProject>true</IsTestProject>
-    <Platforms>win10-x64</Platforms> <!-- ostrzeżenie - to powinno być win10-x64?-->
-	<RuntimeIdentifier>win10-x64</RuntimeIdentifier>
+    <Platforms>x64</Platforms> <!-- ostrzeżenie - to powinno być win10-x64?-->
+	<RuntimeIdentifier>win-x64</RuntimeIdentifier>
   </PropertyGroup>
 
   <ItemGroup>
