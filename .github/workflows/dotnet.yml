@@ -22,12 +22,15 @@ jobs:
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: 8.0.x
+      run: dotnet tool install --global Microsoft.Sbom.DotNetTool
     - name: Przywróć wymagane pakiety
       run: dotnet workload restore
     - name: I jeszcze coś
-      run: dotnet restore
+      run: dotnet restore --verbosity diagnostic
     - name: Zbuduj
-      run: dotnet build --no-restore
+      run: dotnet build --no-restore --configuration Debug --verbosity diagnostic --runtime win-x64
+    #- name: SBOM
+     # run: sbom-tool generate
     - name: Testuj
       run: dotnet test --no-build --verbosity normal
   praca:
@@ -43,10 +46,12 @@ jobs:
       with:
         #working_directory: praca #może teraz znajdzie
         root_file: praca/praca.tex
-        latexmk_use_xelatex: true
+        texlive_version: 2024 #doprecyzujmy
+        re_compile: "tlmgr update --self && tlmgr update --all"
+        latexmk_use_xelatex: false #pdfTeX albo przewóz
         #env:
         #  TEXINPUTS: "./latex/cls//:"
-        #args: -pdf -bibtex -latexoption=-file-line-error -latexoption=-interaction=nonstopmode
+        args: -pdf -bibtex -latexoption=-file-line-error -latexoption=-interaction=nonstopmode
     - name: Wrzuć PDF-a
       uses: actions/upload-artifact@v4
       with:

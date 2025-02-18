@@ -11,7 +11,7 @@
 \Etitle{Simulation of a highly unstable dynamic system with phase space analysis}
 \author{Autor Iksiński}
 %\thanks{Funded by the Overleaf team.}
-\date{Marzec 2024}
+\date{Marzec 2025}
 %\university{Szkoła Główna Gospodarstwa Wiejskiego\\ w Warszawie}
 %\dep{Wydział Zastosowań Informatyki i Matematyki}
 \album{208266}
@@ -32,17 +32,27 @@
 {Simulation, Dynamical system, Fatou set, phase space, structural stability, Lyapunov stability, simulating electrons in a magnetic field, plasma simulation}
 
 {
-  \doublespacing
+  \doublespacing % a to sprawdzałem, to był standard w Polsce też na długo przed wojną, i w Biblii Gdańskiej po kropce jest dłuższa przerwa
   \tableofcontents
 }
 
 \startchapterfromoddpage % niezależnie od długości spisu treści pierwszy rozdział zacznie się na nieparzystej stronie
 
 \chapter{Wykaz symboli i skrótów}
-TLDR -- zbyt długie, nie czytałem
+\begin{description}
+  \item [TLDR] -- zbyt długie, nie czytałem
+  \item [UI] -- interfejs graficzny
+  \item [format Word] -- Office Open XML Document
+  \item [język RTL] -- język z pismem pisanym domyślnie z prawej na lewą stronę w stosunku do osoby piszącej (inaczej, jak w alfabecie łacińskim)
+  \item [GNU] -- projekt wolnej (jak w słowie wolny rynek) implementacji Unixo-podobnego systemu operacyjnego prowadzony przez Free Software Foundation
+\end{description}
 
 \chapter{Wstęp}
 Zbyt długo się zbieram z napisaniem tego. Do tego stopnia, że przegapiłem pierwszy termin oddania pracy. Jeszcze więcej tekstu do napisania. Celem pracy jest jej napisanie, rzecz jasna.
+
+Jako absolwenta profilu mat-fiz-inf interesuje mnie matematyka, w tym fraktale. Alternatywnym tematem pracy inżynierskiej miał być algorytm do tworzenia wykresów funkcji Bolzano, najstarszej odkrytej funkcji o właściwościach fraktalnych, na zadanym odcinku w euklidesowej przestrzeni dwuwymiarowej. W ten sposób zapełniłbym niszę.
+
+W którym dziele przeczytałem, że silnie niestabilne układy dynamiczne mają poszarpane fraktalnie baseny dopływu? To do ustalenia. 
 
 \section{Przegląd literatury}
 W \LaTeX-u.\cite{talbot2013}
@@ -50,28 +60,41 @@ W \LaTeX-u.\cite{talbot2013}
 \chapter{Cel i zakres pracy}
 Program generuje okrężną drogą (symulacji fizycznej) fraktale Newtona. Taki zakres. Celem pracy jest zdobycie tytułu inżyniera i zakończenie przeze mnie edukacji wyższej. Do tego ostatniego celu nie przykładam się, jak powinienem.
 \section{Wykorzystane technologie}
-Zadany program ma działać na Windowsie 10, edycji na procesory x64, bez obsługi ekranu dotykowego. Tylko na tą platformę debuguję.
-\subsection{C\#}
-Język programowania Microsoftu, z którym miałem najwięcej styczności na studiach. Posługuję się wersją dla .NET 8. Do UI wykorzystuję MAUI, będąca nowszą biblioteką od Windows Forms.
+
+\subsection{C\# 12}
+Język programowania Microsoftu, z którym miałem najwięcej styczności na studiach. Posługuję się wersją dla \textbf{.NET 8}. Do interfejsu graficznego wykorzystuję \textbf{MAUI}, będąca nowszą biblioteką od Windows Forms. Jako środowisko programistyczne wykorzystałem \textbf{Visual Studio Community 2022}.
 \subsection{Plotly}
-Biblioteka do tworzenia wykresów i eksportu do pliku graficznego. Zgodna z wybranym przeze mnie jezykiem.
+Biblioteka do tworzenia wykresów i eksportu do pliku graficznego. Zgodna z wybranym przeze mnie językiem.
 \subsection{Dotnet.ReproducibleBuilds}
 Na ostatnią chwilę dodałem  (za: https://www.meziantou.net/creating-reproducible-build-in-dotnet.htm) zapewnienie zgodności kodu z kompilowanym programem. Najnowszy trend.
 \subsection{Microsoft.Extensions.Localization}
-Menu jest w języku polskim, jednak chcę umożliwić tłumaczenia.
+Menu jest w języku polskim, jednak chcę umożliwić tłumaczenia. Testy języków RTL (np. arabski, hebrajski) bądź innych, pionowych kombinacji (dawniej chiński i japoński) są nieuwzględnione.
 \subsection{XUnit}
 Biblioteka do testów jednostkowych, w tym interfejsu graficznego.
+\subsection{Git}
+System kontroli wersji, w ten sposób zapisuję i cofam postępy w pracy. Repozytorium kodu źródłowego jest też dostępne dla osób postronnych.
+\subsection{Github Actions}
+Pomyślałem też sobie, że przy każdej wprowadzonej zmianie będę kompilował zarówno program, jak i pracę inżynierską. Jak do tej pory bez powodzenia, ale debugowanie to też nauka.
+\subsection{\TeX}
+Praca inżynierska jest pisana przy użyciu systemu składu drukarskiego \TeX, zestawu makr \LaTeX, silnika pdfTeX oraz klasy przygotowanej przez pana Łukasza. Z pliku tworzę zarówno plik w formacie PDF, jak i Word. Z racji środowiska pracy korzystam z dystrybucji MiKTeX. Ponadto spis treści tworzę w programie \textbf{MakeIndex}, zaś do zarządzania bibliografią -- \textbf{BibTeX}.
+\subsection{SBOM}
+Uwzgledniłem też tzw. \textit{Software Bill of Materials}, w celu śledzenia licencji użytych bibliotek, w tym zgodności mojego programu z nimi.
+\subsection{Diagramy}
+Jakaś forma diagramów, typu UML, została wykorzystana w ramach tworzenia pracy. Posłużyłem się \textbf{Visual Paradigm} bądź podobnym programem.
+\subsection{Doxygen + Graphviz}
+Programy do automatycznego tworzenia dokumentacji. Pozostałość uniwersyteckiego kursu z inżynierii oprogramowania. W chwili, gdy to piszę, kusi mnie pójść dalej i napisać Unixowy \textit{man page} plus wyposażyć w argumenty konsolowe rodem z GNU typu \texttt{\-\-version} czy \texttt{\-\-help} -- proszę mnie od tego odstraszyć, program nie musi być wspaniały.
 
 \chapter{Założenia metodyczne}
-Jeszcze więcej tekstu.
+Zadany program ma działać na Windowsie 10, edycji na procesory x64, bez obsługi ekranu dotykowego. Tylko na tą platformę debuguję.
 
 \chapter{Część doświadczalna}
-Jeszcze więcej tekstu.
+To jak to wygląda obsługa tego programu? Jak to było go pisać?
 
 \chapter{Wyniki i dyskusja}
-Jeszcze więcej tekstu.
+Porównanie z innymi programami i algorytmami. Zalety i wady. Rozmiar, zużycie zasobów.
 
 \chapter{Wnioski}
+Dałem radę. Jak po grudzie, ale dałem radę.
 Panie Łukasz, popraw dokumentację tej klasy w LaTeXu.
 
 \chapter{Załączniki}
@@ -83,5 +106,5 @@ Bla bal bal.
 
 \bibliographystyle{vancouver}
 \bibliography{przyklad}
-\beforelastpage[2023]
+\beforelastpage[2025]
 \end{document}
