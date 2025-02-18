@@ -66,7 +66,7 @@ Język programowania Microsoftu, z którym miałem najwięcej styczności na stu
 \subsection{Plotly}
 Biblioteka do tworzenia wykresów i eksportu do pliku graficznego. Zgodna z wybranym przeze mnie językiem.
 \subsection{Dotnet.ReproducibleBuilds}
-Na ostatnią chwilę dodałem  (za: https://www.meziantou.net/creating-reproducible-build-in-dotnet.htm) zapewnienie zgodności kodu z kompilowanym programem. Najnowszy trend.
+Na ostatnią chwilę dodałem  (za: https://www.meziantou.net/creating-reproducible-build-in-dotnet.htm) zapewnienie zgodności kodu z kompilowanym programem. Najnowszy trend w programowaniu.
 \subsection{Microsoft.Extensions.Localization}
 Menu jest w języku polskim, jednak chcę umożliwić tłumaczenia. Testy języków RTL (np. arabski, hebrajski) bądź innych, pionowych kombinacji (dawniej chiński i japoński) są nieuwzględnione.
 \subsection{XUnit}
@@ -86,6 +86,12 @@ Programy do automatycznego tworzenia dokumentacji. Pozostałość uniwersyteckie
 
 \chapter{Założenia metodyczne}
 Zadany program ma działać na Windowsie 10, edycji na procesory x64, bez obsługi ekranu dotykowego. Tylko na tą platformę debuguję.
+
+Program składa się z menu z ustawieniami (domyślnie: po lewej stronie) oraz ekranu, na którym wyświetlać ma się symulacja. Ekran domyślnie ładuje się z trzema protonami ustawionymi w trójkąt równoboczny oraz z pojedynczym elektronem. Za pomocą myszki użytkownik nadaje pędy cząsteczkom (przez cząsteczki mam na myśli elektron)(reprezentowane za pomocą strzałki) oraz ich położenie początkowe. W ustawieniach zaś dostosowuje opcje wykresu (format, miejsce zapisu, rozdzielczość), jak również opcja obliczeń wszystkich kombinacji naraz. 
+
+Za pomocą przycisku uruchamiana jest symulacja z zadanymi opcjami. Cząsteczki się poruszają aż do zderzenia bądź ustalonego limitu czasowego. Jest możliwość ponownego odtworzenia symulacji pod warunkiem braku zmian (w pętli?). Po ukończeniu symulacji można podejrzeć na osobnym oknie wynik obliczeń wszystkich kombinacji naraz (jeśli został wybrany), czyli wykres basenów dopływu, docelowo: fraktal Newtona.
+
+Wartość ładunku elektrycznego symulowanych cząsteczek nie ulega zmianie.
 
 \chapter{Część doświadczalna}
 To jak to wygląda obsługa tego programu? Jak to było go pisać?
