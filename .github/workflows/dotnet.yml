@@ -22,6 +22,7 @@ jobs:
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: 8.0.x
+    - name: Dodajmy jeszcze przyrząd
       run: dotnet tool install --global Microsoft.Sbom.DotNetTool
     - name: Przywróć wymagane pakiety
       run: dotnet workload restore
@@ -29,8 +30,8 @@ jobs:
       run: dotnet restore --verbosity diagnostic
     - name: Zbuduj
       run: dotnet build --no-restore --configuration Debug --verbosity diagnostic --runtime win-x64
-    #- name: SBOM
-     # run: sbom-tool generate
+    - name: SBOM
+      run: sbom-tool generate
     - name: Testuj
       run: dotnet test --no-build --verbosity normal
   praca:
